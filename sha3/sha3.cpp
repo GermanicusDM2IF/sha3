@@ -14,6 +14,8 @@
 #include <cstdlib>
 #include <cstring>
 
+#include "hash.h"
+
 
 // this is not sha-3, this is keccak-256 as used in ethereum
 // see: https://medium.com/@ConsenSys/are-you-really-using-sha-3-or-old-code-c5df31ad2b0
@@ -186,4 +188,17 @@ std::string sha3_256(std::string input) {
 	}	
 	return std::string(outputHex,64);
 
+}
+
+std::string hash(std::string input) {
+	return sha3_256(input);
+}
+
+std::string hasName() {
+	return "sha3";
+}
+
+
+std::string version() {
+	return SHA3_VERSION_STR;
 }
